@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        /* Burgundy & Cream Color Palette - Classic, Elegant, Timeless */
+        --background: 40 35% 97%;
+        --foreground: 355 30% 20%;
+        
+        /* Rich Burgundy Palette */
+        --primary: 355 65% 35%; /* Deep Burgundy #812735 */
+        --primary-foreground: 0 0% 100%;
+        --primary-glow: 355 60% 45%; /* Medium Burgundy Glow */
+        
+        /* Warm Cream */
+        --secondary: 40 60% 85%; /* Cream #EDE5D8 */
+        --secondary-foreground: 355 30% 20%;
+        --accent: 45 70% 90%; /* Light Cream accent */
+        --accent-foreground: 355 30% 20%;
+        
+        /* UI Elements */
+        --card: 0 0% 100%;
+        --card-foreground: 355 30% 20%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 355 30% 20%;
+        --muted: 40 25% 95%;
+        --muted-foreground: 355 15% 45%;
+        --border: 40 20% 88%;
+        --input: 40 25% 92%;
+        --ring: 355 65% 35%;
+        
+        /* State Colors */
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 100%;
+        --success: 142 76% 45%;
+        --warning: 38 92% 50%;
+        
+        /* Classic Gradients */
+        --gradient-luxury: linear-gradient(135deg, hsl(355 65% 35%), hsl(40 60% 85%));
+        --gradient-elegant: linear-gradient(180deg, hsl(40 35% 97%), hsl(40 30% 94%));
+        --gradient-hero: linear-gradient(135deg, hsl(355 65% 35% / 0.95), hsl(355 55% 45% / 0.85));
+        
+        /* Shadows & Effects */
+        --shadow-elegant: 0 10px 40px -10px hsl(355 65% 35% / 0.3);
+        --shadow-soft: 0 2px 10px hsl(355 40% 40% / 0.1);
+        --shadow-premium: 0 20px 60px -15px hsl(355 65% 35% / 0.4);
+        
+        /* Animation Timings */
+        --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-elegant: 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+        
+        --radius: 0.5rem;
+    }
+    
+    .dark {
+        --background: 355 25% 10%;
+        --foreground: 40 25% 92%;
+        --card: 355 20% 13%;
+        --card-foreground: 40 25% 92%;
+        --popover: 355 20% 13%;
+        --popover-foreground: 40 25% 92%;
+        --primary: 355 65% 40%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 40 50% 75%;
+        --secondary-foreground: 355 30% 15%;
+        --muted: 355 15% 18%;
+        --muted-foreground: 40 20% 70%;
+        --accent: 45 60% 80%;
+        --accent-foreground: 355 25% 10%;
+        --border: 355 12% 22%;
+        --input: 355 12% 22%;
+        --ring: 355 65% 40%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+    }
+    
+    /* Smooth Scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@layer components {
+    /* Luxury Button Variants */
+    .btn-luxury {
+        @apply bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300;
+        box-shadow: var(--shadow-elegant);
+    }
+    
+    .btn-luxury:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-premium);
+    }
+    
+    .btn-outline-gold {
+        @apply border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-primary-foreground transition-all duration-300;
+    }
+    
+    /* Premium Card Effects */
+    .card-luxury {
+        @apply bg-card rounded-lg overflow-hidden transition-all duration-500;
+        box-shadow: var(--shadow-soft);
+    }
+    
+    .card-luxury:hover {
+        box-shadow: var(--shadow-elegant);
+        transform: translateY(-8px);
+    }
+    
+    /* Gold Accent Line */
+    .gold-divider {
+        @apply h-0.5 w-20 bg-primary mx-auto;
+    }
+    
+    /* Glass Effect */
+    .glass-effect {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+}
+
+@layer utilities {
+    /* Text Gradients - Premium Colors Only */
+    .text-gradient-gold {
+        background: linear-gradient(135deg, hsl(45 95% 34%), hsl(52 75% 50%));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    /* Animation Utilities */
+    .animate-fade-in {
+        animation: fadeIn 0.6s ease-in;
+    }
+    
+    .animate-slide-up {
+        animation: slideUp 0.8s ease-out;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Hover Effects */
+    .hover-lift {
+        transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+    }
+    
+    .hover-lift:hover {
+        transform: translateY(-4px);
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+    }
+}
