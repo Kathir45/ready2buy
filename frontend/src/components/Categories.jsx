@@ -32,17 +32,15 @@ export const Categories = () => {
         });
 
         // Update categories with real counts
-        const updatedCategories = categories.map(cat => ({
+        setCategories(prevCategories => prevCategories.map(cat => ({
           ...cat,
           count: categoryCounts[cat.name] || 0
-        }));
-
-        setCategories(updatedCategories);
+        })));
       } catch (error) {
         console.error('Error fetching categories:', error);
         toast.error('Failed to load categories');
         // Set default counts if fetch fails
-        setCategories(categories.map(cat => ({
+        setCategories(prevCategories => prevCategories.map(cat => ({
           ...cat,
           count: 0
         })));
